@@ -3,7 +3,7 @@ import { defineColadaLoader } from "unplugin-vue-router/data-loaders/pinia-colad
 import { shallowRef } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-export const useUserData = defineColadaLoader("/", {
+export const useUserData = defineColadaLoader("index", {
   async query(_, { signal }) {
     return fetch("https://jsonplaceholder.typicode.com/todos/2", {
       signal: signal,
@@ -16,9 +16,9 @@ export const useUserData = defineColadaLoader("/", {
 </script>
 
 <script setup lang="ts">
-const route = useRoute("/");
+const route = useRoute("index");
 
-const { status, isLoading, error, state } = useUserData();
+const { status, isLoading, error, state, data } = useUserData();
 
 const roputer = useRouter();
 const search = shallowRef("");
@@ -46,5 +46,6 @@ function onSearch(e: Event) {
     </p>
     <pre v-if="error">Error: {{ error }}</pre>
     <pre v-else>{{ state.data == null ? String(state.data) : state.data }}</pre>
+    <pre>{{ data == null ? String(data) : data }}</pre>
   </main>
 </template>
