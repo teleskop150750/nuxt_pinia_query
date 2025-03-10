@@ -14,6 +14,7 @@ const { status, isLoading, error, state } = useQuery({
     }).then((response) => response.json());
   },
   key: () => ["self", (route.query.search as string) ?? ""],
+  placeholderData: (v) => v,
 });
 
 const roputer = useRouter();

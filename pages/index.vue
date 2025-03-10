@@ -10,6 +10,7 @@ export const useUserData = defineColadaLoader("/", {
     }).then((response) => response.json());
   },
   key: (to) => ["loader", (to.query.search as string) ?? ""],
+  placeholderData: (v) => v,
   lazy: false,
 });
 </script>

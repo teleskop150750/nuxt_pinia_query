@@ -10,6 +10,7 @@ export const useUserData = defineColadaLoader("/lazy", {
     }).then((response) => response.json());
   },
   key: (to) => ["lazy", (to.query.search as string) ?? ""],
+  placeholderData: (v) => v,
   lazy: true,
 });
 </script>
