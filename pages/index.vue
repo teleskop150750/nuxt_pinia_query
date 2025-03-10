@@ -32,7 +32,7 @@ function onSearch(e: Event) {
 
 <template>
   <main>
-    <h1>Pinia Colada Loader Example</h1>
+    <h1>Nuxt Lazy: false</h1>
     <pre>User: {{ route.query.id }}</pre>
 
     <input type="text" :value="search" @input="onSearch" />
